@@ -1,0 +1,104 @@
+Kotlin中的基本类型
+数字
+Byte     8         字节型
+Short    16        短整型
+Int      32         整型
+Long     64        长整型
+Float    32        单精度浮点型
+Double    64        双精度浮点型
+整型数字的写法
+十进制： 123
+    长整型十进制（用L修饰）： 123L
+十六进制：0x0F
+二进制： 0b00001011
+注意： 整数不支持八进制的写法
+浮点型数字的写法
+双精度： 123.5 ，123.5e10
+单精度（用f或F修饰）： 123.5f
+可以用下划线在数字的中间隔开
+eg :
+   val oneMillion = 1_000_000
+   val creditCardNumber = 1234_5678_9012_3456L
+   val socialSecurityNumber = 999_99_9999L
+   val hexBytes = 0xFF_EC_DE_5E
+   val bytes = 0b11010010_01101001_10010100_10010010
+字符(Kotlin中字符不是数字)
+字符型
+Char   字符型
+  eg: val c = 'A'
+注意： Kotlin中字符不可以当作数字来处理
+布尔值（true或false）
+数组
+  看Demo（Arrays）
+一、创建数组
+     1、构造方法，通过角标来创建数组
+        val a = Array(5,{i -> i+100})
+     2、通过Library类
+        ---arrayOf  元素可以是任意值
+        ---arrayOfNulls    创建null值的数组，只需要指定数组的尺寸
+        ---byteArrayOf     创建字节数组
+        ---shortArrayOf    创建短整型数组
+        ---intArrayOf      创建整型数组
+        ---longArrayOf     创建长整型数组
+        ---booleanArrayOf  创建布尔值型的数组
+        ---floatArrayOf    创建单精度类型的数组
+        ---doubleArrayOf   创建双精度浮点型的数组
+        ---charArrayOf     创建字符型的数组
+二、获取数组中的值
+    1、使用get(index)方法
+    2、使用像Java中的a[0]
+    eg: var y = a.get(0)
+        var z = a[0]
+三、获取数组角标的数组
+    .indices : IntRange
+    eg:
+       a.indices
+       b.indices
+四、 获取数组的大小
+   .size
+   eg:
+     a.size
+     b.size
+字符串
+  看Demo（Strings）
+一、创建字符串
+    1、构造方法,无参构造方法，创建的字符串是一个空串
+     --- String()
+    2、直接指定一个字符串
+       eg :
+           val s = "Some String"
+    3、指定的字符串中可以包含制表符合回车符等转义字符
+       eg :
+           val s = "Some\tString\n"
+    4、指定字符串可以是多行 用"""   """包含
+      eg :
+          val s = """ABC
+                     123
+                     456
+                     """
+    5、指定字符串的时候可以像Java一样使用拼接
+      eg:
+        val s = "abc" + 1
+
+二、字符串中字符遍历取出
+    1、使用迭代器
+      .iterator() : Iterator
+      eg :
+        Iterator iterator = s.iterator()
+        for(iterator.hasNext()){
+            iterator.next()
+        }
+     2、直接使用for循环取出字符串中的字符
+     eg:
+       for（c : Char in s）{
+        println(c)
+       }
+三、去掉多行字符串中某个标识符前的空格，默认的标识符是|
+   eg: var s = """ABC
+                 |123
+                 |456
+                 DEF""".trimMargin()
+四、索引运算符
+   s[i]
+   字符串的元素----字符可以使用索引运算符s[i]来访问
+   索引运算符会被翻译成String.chatAt()

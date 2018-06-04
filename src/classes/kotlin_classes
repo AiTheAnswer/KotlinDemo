@@ -1,0 +1,9 @@
+Kotlin类的成员可以包含：
+      1、构造函数和初始化块
+      2、属性
+      3、函数
+      4、嵌套类和内部类
+      5、对象声明
+一、构造函数
+      1、一个类可以有一个主构造函数（primary constructor）
+                    一个或多个次构造函数(secondary constructor)
